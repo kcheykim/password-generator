@@ -6,6 +6,12 @@ var special = null;
 var upper = null;
 var lower = null;
 
+var randomChars = {
+  numChar: getRandomNum(),
+  specialChar: getRandomChars(),
+  upperChar: getRandomUpper(),
+  lowerChar: getRandomLower()
+}
 
 //this function gives the users choices of numeric, special character, uppercase or lowercase letters in their password
 function getChoices() {
@@ -48,15 +54,30 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+//password = document.getElementByID('pass');
 
 }
 
 function getRandomNum() {
-  var x = Math.floor(Math.random()*10);
+  return String.fromCharCode(Math.floor(Math.random()*10) +48);
 }
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomChars() {
+  var a = String.fromCharCode(Math.floor(Math.random() * 16) + 32);
+  var b = String.fromCharCode(Math.floor(Math.random() * 7) + 58);
+  var c = String.fromCharCode(Math.floor(Math.random() * 6) + 91);
+  var d = String.fromCharCode(Math.floor(Math.random() * 4) + 123);
+  var allSpecial = a + b + c + d;
+  return allSpecial;
+
 }
 
 // Add event listener to generate button
