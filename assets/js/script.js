@@ -1,10 +1,11 @@
 //declare global variables
 var generateBtn = document.querySelector("#generate");
-var genPassWd = "";
+
 
 
 //this function gives the users choices of numeric, special character, uppercase or lowercase letters in their password
 function getChoices() {
+  var genPassWd = "";
 
   //local variable for password length
   var pwLength = 0;
@@ -22,6 +23,8 @@ function getChoices() {
       }
   }
   
+  //counter will keep track of the number of choices but if it is zero,
+  //  it will go repeat all choices until at least one valid choice gets selected
   while(counter == 0){
 
     //check if user would like numeric values in password
@@ -68,12 +71,12 @@ function getChoices() {
   pwLength = pwLength - counter;
 
   //calling generatePassword function - passing it the newlenght and the randomString
-  generatePassword(pwLength, randomString);
+  return generatePassword(pwLength, randomString, genPassWd);
  
 }
 
 //function to generate random numeric value
-function generatePassword(pwdLen, rString) {
+function generatePassword(pwdLen, rString, genPassWd) {
   for(var i = 0; i < pwdLen; i++) {
     genPassWd += rString[Math.floor(Math.random() * rString.length)]; 
     console.log(genPassWd);
@@ -105,16 +108,11 @@ function getRandomChars() {
 
 // Write password to the #password input
 function writePassword() {
-  
- var password = getChoices();
- password = generatePassword();
- var passwordText = document.querySelector("#password");
- passwordText.value = password;
-}
-
-function clearText()
-{
-  document.getElementById("#password").value='';
+  var passwordText = document.querySelector("#password");
+  passwordText.value = "";
+  var password = "";
+  password = getChoices();
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
