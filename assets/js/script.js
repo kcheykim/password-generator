@@ -24,7 +24,7 @@ function getChoices() {
   }
   
   //counter will keep track of the number of choices but if it is zero,
-  //  it will go repeat all choices until at least one valid choice gets selected
+  //  it will repeat all choices until at least one valid choice gets selected
   while(counter == 0){
 
     //check if user would like numeric values in password
@@ -79,7 +79,6 @@ function getChoices() {
 function generatePassword(pwdLen, rString, genPassWd) {
   for(var i = 0; i < pwdLen; i++) {
     genPassWd += rString[Math.floor(Math.random() * rString.length)]; 
-    console.log(genPassWd);
   }
   return genPassWd;
 }
