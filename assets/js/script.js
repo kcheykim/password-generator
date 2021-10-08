@@ -1,8 +1,6 @@
 //declare global variables
 var generateBtn = document.querySelector("#generate");
 
-
-
 //this function gives the users choices of numeric, special character, uppercase or lowercase letters in their password
 function getChoices() {
   var genPassWd = "";
@@ -26,6 +24,7 @@ function getChoices() {
   //counter will keep track of the number of choices but if it is zero,
   //  it will repeat all choices until at least one valid choice gets selected
   while(counter == 0){
+    prompt("Please enter '1' for your choices and one must be selected out of four. Otherwise, you will be asked until you have select at least one.");
 
     //check if user would like numeric values in password
     //true: add random number to genPassWd by calling getRandomNum function,
@@ -82,7 +81,6 @@ function generatePassword(pwdLen, rString, genPassWd) {
   }
   return genPassWd;
 }
-
 
 //function to generate random numeric value
 function getRandomNum() {
