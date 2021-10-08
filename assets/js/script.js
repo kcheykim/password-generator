@@ -24,7 +24,7 @@ function getChoices() {
   //counter will keep track of the number of choices but if it is zero,
   //  it will repeat all choices until at least one valid choice gets selected
   while(counter == 0){
-    prompt("Please enter '1' for your choices and one must be selected out of four. Otherwise, you will be asked until you have select at least one.");
+    window.alert("You will be ask what values you would like in your password. Press only the number '1' if you want those values. If no choices were selected, the prompt will repeat the four choices again.");
 
     //check if user would like numeric values in password
     //true: add random number to genPassWd by calling getRandomNum function,
